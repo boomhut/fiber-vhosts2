@@ -5,8 +5,7 @@
 
 ## Overview
 
-- [fiber-vhosts2](#fiber-vhosts2)
-		- [Overview](#overview)
+	- [Overview](#overview)
 	- [Description](#description)
 	- [Example Usage](#example-usage)
 	- [API](#api)
