@@ -3,7 +3,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/boomhut/fiber-vhosts2.svg)](https://pkg.go.dev/github.com/boomhut/fiber-vhosts2)
 [![Go Report Card](https://goreportcard.com/badge/github.com/boomhut/fiber-vhosts2)](https://goreportcard.com/report/github.com/boomhut/fiber-vhosts2)
 
-### Overview
+## Overview
 
 - [fiber-vhosts2](#fiber-vhosts2)
 		- [Overview](#overview)
