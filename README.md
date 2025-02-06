@@ -1,10 +1,8 @@
 # fiber-vhosts2
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/boomhut/fiber-vhosts2.svg)](https://pkg.go.dev/github.com/boomhut/fiber-vhosts2)
-[![Go Report Card](https://goreportcard.com/badge/github.com/boomhut/fiber-vhosts2)](https://goreportcard.com/report/github.com/boomhut/fiber-vhosts2)
-
 ## Overview
 
+- [fiber-vhosts2](#fiber-vhosts2)
 	- [Overview](#overview)
 	- [Description](#description)
 	- [Example Usage](#example-usage)
@@ -20,6 +18,10 @@
 ## Description
 
 New approach vhosts implementation. This package provides a middleware for the Fiber web framework that allows you to route requests to different sub-apps based on the hostname. It also provides a VhostsManager struct that allows you to add and retrieve sub-apps based on hostnames in a thread-safe manner.
+
+
+[![Go Reference](https://pkg.go.dev/badge/github.com/boomhut/fiber-vhosts2.svg)](https://pkg.go.dev/github.com/boomhut/fiber-vhosts2)
+[![Go Report Card](https://goreportcard.com/badge/github.com/boomhut/fiber-vhosts2)](https://goreportcard.com/report/github.com/boomhut/fiber-vhosts2)
 
 ## Example Usage
 
