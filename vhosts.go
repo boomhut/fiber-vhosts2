@@ -36,6 +36,17 @@ func (m *VhostsManager) GetHostname(hostname string) (*fiber.App, bool) {
 	return app, exists
 }
 
+// GetHostnames returns a list of all hostnames in the manager
+func (m *VhostsManager) GetHostnames() []string {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+	hostnames := make([]string, 0, len(m.hosts))
+	for hostname := range m.hosts {
+		hostnames = append(hostnames, hostname)
+	}
+	return hostnames
+}
+
 // VhostMiddleware mounts a specific sub-app based on the hostname. If the hostname is not found, it returns a 404 response. This middleware is intended to be used with the main app to route requests to different sub-apps based on the hostname.
 func VhostMiddleware(manager *VhostsManager) fiber.Handler {
 	return func(c *fiber.Ctx) error {

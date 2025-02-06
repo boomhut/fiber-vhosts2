@@ -65,3 +65,17 @@ func TestVhostMiddleware_NonExistingHost(t *testing.T) {
 
 	assert.Equal(t, fiber.StatusNotFound, resp.StatusCode)
 }
+
+// Test GetHostnames functionality.
+func TestVhostsManager_GetHostnames(t *testing.T) {
+	manager := NewVhostsManager()
+	app1 := fiber.New()
+	app2 := fiber.New()
+	app3 := fiber.New()
+	manager.AddHostname("example1.com", app1)
+	manager.AddHostname("example2.com", app2)
+	manager.AddHostname("example3.com", app3)
+
+	hostnames := manager.GetHostnames()
+	assert.ElementsMatch(t, []string{"example1.com", "example2.com", "example3.com"}, hostnames)
+}
