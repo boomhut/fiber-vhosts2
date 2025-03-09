@@ -265,3 +265,29 @@ func TestVhostMiddleware_RecoverFromPanic(t *testing.T) {
 	assert.NoError(t, err)
 	resp.Body.Close()
 }
+
+// Test adding longer hostname like "sw.didam.smartest.website"
+func TestVhostsManager_AddLongHostname(t *testing.T) {
+	manager := NewVhostsManager()
+	app := fiber.New()
+
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("subapp response")
+	})
+
+	hostname := "sw.didam.smartest.website"
+	manager.AddHostname(hostname, app)
+
+	retrieved, exists := manager.GetHostname(hostname)
+	assert.True(t, exists)
+	assert.Equal(t, app, retrieved)
+
+	// test if app is found for subdomain
+	req := httptest.NewRequest("GET", "/", nil)
+	req.Host = "sw.didam.smartest.website"
+	resp, err := app.Test(req)
+	assert.NoError(t, err)
+	resp.Body.Close()
+	assert.Equal(t, fiber.StatusOK, resp.StatusCode)
+
+}
